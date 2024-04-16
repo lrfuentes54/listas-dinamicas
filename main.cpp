@@ -1,44 +1,7 @@
 #include <iostream>
+#include "dinamicList.h"
 
 using namespace std;
-
-struct Node {
-    int value;
-    Node *next;
-};
-
-/**
- * Función para insertar elementos a una lista dinámica
- *
- * @param   Node**   p        Puntero al puntero de la lista principal
- * @param   int      index    Indice donde insertar el elemento (por ahora, solo acepta cabeza y cola)
- *
- * @return  void           
- */
-void insertar(Node **p, int index) {
-    Node *newElement = new Node;
-    int element;
-    if (!newElement) {
-        cout << "No hay suficiente espacio en memoria para insertar un nueva elemento";
-        return;
-    }
-    
-    cout << "\tIngrese el elemento a insertar: ";
-    cin >> element;
-    newElement -> value = element;
-    if (!index) {
-        newElement -> next = *p;
-        *p = newElement;
-    }
-    else {
-        Node *aux = *p;
-        while (aux && aux -> next) aux = aux -> next;
-        if (aux) aux -> next = newElement;
-        else *p = newElement;
-    }
-    newElement = NULL;
-    delete newElement;
-}
 
 int main() {
 	int resp;
@@ -70,13 +33,18 @@ int main() {
                 
             } break;
 
-            case 2: 
-                insertar(&p, 0);
-                break;
-
-            case 3: 
-                insertar(&p, 1);
-                break;
+            case 2: {
+                int element;
+                cout << "\tIngrese el elemento a insertar: ";
+                cin >> element;
+                insertar(&p, element, 0);
+            } break;
+            case 3: {
+                int element;
+                cout << "\tIngrese el elemento a insertar: ";
+                cin >> element;
+                insertar(&p, element, 1);
+            } break;
 
             case 4: {
                 int element;
