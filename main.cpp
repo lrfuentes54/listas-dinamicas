@@ -49,6 +49,8 @@ int main() {
                     newElement -> value = element;
                     newElement -> next = p;
                     p = newElement;
+                    newElement = NULL;
+                    delete newElement;
                 }
             } break;
 
