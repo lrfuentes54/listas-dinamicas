@@ -7,6 +7,36 @@ struct Node {
     Node *next;
 };
 
+/**
+ * Función para insertar elementos a una lista dinámica
+ *
+ * @param   Node**   p        Puntero al puntero de la lista principal
+ * @param   int      index    Indice donde insertar el elemento (por ahora, solo acepta cabeza y cola)
+ *
+ * @return  void           
+ */
+void insertar(Node **p, int index) {
+    Node *newElement = new Node;
+    int element;
+    if (!newElement) {
+        cout << "No hay suficiente espacio en memoria para insertar un nueva elemento";
+        return;
+    }
+    
+    cout << "\tIngrese el elemento a insertar: ";
+    cin >> element;
+    newElement -> value = element;
+    if (!index) {
+        newElement -> next = *p;
+        *p = newElement;
+    }
+    else {
+        
+    }
+    newElement = NULL;
+    delete newElement;
+}
+
 int main() {
 	int resp;
     Node *p = NULL;
@@ -37,22 +67,9 @@ int main() {
                 
             } break;
 
-            case 2: {
-                Node *newElement = new Node;
-                int element;
-                if (!newElement) {
-                    cout << "No hay suficiente espacio en memoria para insertar un nueva elemento";
-                }
-                else {
-                    cout << "\tIngrese el elemento a insertar: ";
-                    cin >> element;
-                    newElement -> value = element;
-                    newElement -> next = p;
-                    p = newElement;
-                    newElement = NULL;
-                    delete newElement;
-                }
-            } break;
+            case 2: 
+                insertar(&p, 0);
+                break;
 
             case 3: {
                 Node *newElement = new Node;
