@@ -54,6 +54,28 @@ int main() {
                 }
             } break;
 
+            case 3: {
+                Node *newElement = new Node;
+                int element;
+                if (!newElement) {
+                    cout << "No hay suficiente espacio en memoria para insertar un nueva elemento";
+                }
+                else {
+                    cout << "\tIngrese el elemento a insertar: ";
+                    cin >> element;
+                    Node *aux = p;
+                    newElement -> value = element;
+                    newElement -> next = NULL;
+                    while (aux && aux -> next) aux = aux -> next;
+                    if (aux) aux -> next = newElement;
+                    else p = newElement;
+                    newElement = NULL;
+                    aux = NULL;
+                    delete aux;
+                    delete newElement;
+                }
+            } break;
+
             default:
                 cout << "Opción no valida";
                 break;
