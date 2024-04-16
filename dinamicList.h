@@ -10,14 +10,11 @@ struct Node {
  * @param   int      element  Elemento a insertar en la lista
  * @param   int      index    Indice donde insertar el elemento (por ahora, solo acepta cabeza y cola)
  *
- * @return  void           
+ * @return  bool              Devuelve true cuando logra insertar, false cuando no           
  */
-void insertar(Node **p, int element, int index) {
+bool insertar(Node **p, int element, int index) {
     Node *newElement = new Node;
-    if (!newElement) {
-        cout << "No hay suficiente espacio en memoria para insertar un nueva elemento";
-        return;
-    }
+    if (!newElement) return false;
     newElement -> value = element;
     if (!index) {
         newElement -> next = *p;
@@ -31,4 +28,5 @@ void insertar(Node **p, int element, int index) {
     }
     newElement = 0;
     delete newElement;
+    return true;
 }

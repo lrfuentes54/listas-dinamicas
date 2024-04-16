@@ -37,13 +37,14 @@ int main() {
                 int element;
                 cout << "\tIngrese el elemento a insertar: ";
                 cin >> element;
-                insertar(&p, element, 0);
+                if (!insertar(&p, element, 0)) cout << "No hay suficiente espacio en memoria para insertar un nueva elemento\n";
             } break;
+
             case 3: {
                 int element;
                 cout << "\tIngrese el elemento a insertar: ";
                 cin >> element;
-                insertar(&p, element, 1);
+                if (!insertar(&p, element, 1)) cout << "No hay suficiente espacio en memoria para insertar un nueva elemento\n";
             } break;
 
             case 4: {
@@ -70,4 +71,5 @@ int main() {
         }
 		
     } while(resp);
+    return 0;
 }
