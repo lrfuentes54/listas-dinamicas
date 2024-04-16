@@ -76,6 +76,24 @@ int main() {
                 }
             } break;
 
+            case 4: {
+                int element;
+                cout << "\tIngrese el elemento a eliminar: ";
+                cin >> element;
+                Node *aux = p;
+                while (aux && aux -> value != element) aux = aux -> next;
+                if (!aux) cout << "No se encontró el elemento a eliminar\n";
+                else if (aux && aux == p) p = p -> next;
+                else {
+                    Node *aux2 = p;
+                    while (aux2 -> next != aux) aux2 = aux2 -> next;
+                    aux2 -> next = aux -> next;
+                    aux2 = NULL;
+                    delete aux2;
+                }
+                delete aux;
+            } break;
+
             default:
                 cout << "Opción no valida";
                 break;
