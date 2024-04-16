@@ -2,6 +2,11 @@
 
 using namespace std;
 
+struct Node {
+    int value;
+    Node *next;
+};
+
 int main() {
 	int resp;
 	do {
