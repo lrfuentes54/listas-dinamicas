@@ -11,12 +11,12 @@ int main() {
 	int resp;
     Node *p = NULL;
 	do {
-		cout << "\n\n\tMENU\n\n";
-		cout << "\t\t1) Imprimir lista\n";
-		cout << "\t\t2) Insertar elemento en la cabeza de la lista\n";
-        cout << "\t\t2) Insertar elemento en la cola de la lista\n";
-		cout << "\t\t4) Eliminar elemento\n";
-		cout << "\t\t0) Salir\n\n";
+		cout << "MENU\n\n";
+		cout << "1) Imprimir lista\n";
+		cout << "2) Insertar elemento en la cabeza de la lista\n";
+        cout << "3) Insertar elemento en la cola de la lista\n";
+		cout << "4) Eliminar elemento\n";
+		cout << "0) Salir\n\n";
 		cout << "\tMarque su opcion: ";
 		cin >> resp;
         switch (resp) {
@@ -25,9 +25,17 @@ int main() {
             } break;
 
 
-            case 1: 
-                /* code */
-                break;
+            case 1: {
+                Node *aux = p;
+                cout << "Imprimendo la lista actual:\n";
+                while (aux) {
+                    cout << "|" << aux -> value << "| -> ";
+                    aux = aux -> next;
+                }
+                cout << "NULL\n\n";
+                delete aux;
+                
+            } break;
 
             case 2: {
                 Node *newElement = new Node;
@@ -36,7 +44,7 @@ int main() {
                     cout << "No hay suficiente espacio en memoria para insertar un nueva elemento";
                 }
                 else {
-                    cout << "Ingrese el elemento a insertar: ";
+                    cout << "\tIngrese el elemento a insertar: ";
                     cin >> element;
                     newElement -> value = element;
                     newElement -> next = p;
